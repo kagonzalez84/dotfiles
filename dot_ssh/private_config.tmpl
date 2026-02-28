@@ -1,0 +1,23 @@
+{{ if eq .chezmoi.username "kgonzaleztorres" -}}
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/Github_RSA_FA
+    IdentitiesOnly yes
+
+Host ssh.dev.azure.com
+    HostName ssh.dev.azure.com
+    User git
+    IdentityFile ~/.ssh/Github_RSA_FA
+    IdentitiesOnly yes
+
+Host personalgit
+    HostName github.com
+    User git   
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{ else if eq .chezmoi.username "keiler" -}}
+Host *
+    HostName github.com
+    User git   
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+{{ end -}}
